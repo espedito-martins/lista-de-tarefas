@@ -1,0 +1,71 @@
+
+{
+  "tarefas": [
+    {
+      "id": 1,
+      "titulo": "Implementar GET + renderização dinâmica",
+      "descricao": "Buscar /tarefas e renderizar a lista usando createElement, appendChild e atualização do DOM.",
+      "prioridade": "alta",
+      "status": "pendente",
+      "prazo": "2026-01-10",
+      "criadoEm": "2026-01-05T10:30:00.000Z",
+      "atualizadoEm": "2026-01-05T10:30:00.000Z",
+      "concluidoEm": null
+    },
+    {
+      "id": 2,
+      "titulo": "Criar formulário (POST) + limpar inputs",
+      "descricao": "Enviar nova tarefa via POST e limpar o formulário após sucesso. Recarregar a lista (GET).",
+      "prioridade": "media",
+      "status": "concluida",
+      "prazo": null,
+      "criadoEm": "2026-01-03T14:05:00.000Z",
+      "atualizadoEm": "2026-01-04T09:10:00.000Z",
+      "concluidoEm": "2026-01-04T09:10:00.000Z"
+    },
+    {
+      "id": 3,
+      "titulo": "Implementar busca por título",
+      "descricao": "Criar campo de busca e filtrar tarefas por título (pode usar query no servidor ou filtrar no cliente).",
+      "prioridade": "baixa",
+      "status": "pendente",
+      "prazo": "2026-01-12",
+      "criadoEm": "2026-01-02T08:20:00.000Z",
+      "atualizadoEm": "2026-01-02T08:20:00.000Z",
+      "concluidoEm": null
+    },
+    {
+      "id": 4,
+      "titulo": "PATCH: alternar status concluída/pendente",
+      "descricao": "Ao clicar em 'Marcar como concluída', enviar PATCH mudando apenas o campo status (e concluidoEm quando aplicável).",
+      "prioridade": "alta",
+      "status": "pendente",
+      "prazo": "2026-01-09",
+      "criadoEm": "2026-01-01T12:00:00.000Z",
+      "atualizadoEm": "2026-01-01T12:00:00.000Z",
+      "concluidoEm": null
+    },
+    {
+      "id": 5,
+      "titulo": "PUT/PATCH: editar tarefa",
+      "descricao": "Carregar a tarefa no formulário para edição e salvar as alterações no servidor.",
+      "prioridade": "media",
+      "status": "pendente",
+      "prazo": null,
+      "criadoEm": "2025-12-29T18:45:00.000Z",
+      "atualizadoEm": "2025-12-29T18:45:00.000Z",
+      "concluidoEm": null
+    },
+    {
+      "id": 6,
+      "titulo": "DELETE: excluir tarefa (servidor + DOM)",
+      "descricao": "Remover a tarefa do servidor e, após sucesso, remover o elemento correspondente do DOM.",
+      "prioridade": "baixa",
+      "status": "concluida",
+      "prazo": null,
+      "criadoEm": "2025-12-20T12:00:00.000Z",
+      "atualizadoEm": "2025-12-22T10:15:00.000Z",
+      "concluidoEm": "2025-12-22T10:15:00.000Z"
+    }
+  ]
+}
