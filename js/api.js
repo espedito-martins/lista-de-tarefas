@@ -50,6 +50,18 @@ const api = {
             alert('ERro ao buscar tarefa por ID!')
         }
 
+    },
+
+    async alterarTarefa(tarefa){
+
+        try {
+
+            const resposta = await axios.put(`${URL_BASE}/tarefas/${tarefa.id}`)
+
+        } catch (error) {
+            alert('Erro ao alterar tarefa!')
+        }
+
     }
 }
 

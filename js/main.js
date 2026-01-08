@@ -15,8 +15,13 @@ formulario.addEventListener('submit', async (evento) => {
     const descricao = document.querySelector('#description').value
     const prioridade = document.querySelector('#priority').value
     const status = document.querySelector('#status').value
+    const id = document.querySelector('#task-id').value 
 
-    await api.cadastrarTarefa({titulo, descricao, prioridade, status})
+    if(id){
+        await api.alterarTarefa({id, titulo, descricao, prioridade, status})
+    }else{
+        await api.cadastrarTarefa({titulo, descricao, prioridade, status})
+    }
 
     await ui.renderizarTarefas()
 
