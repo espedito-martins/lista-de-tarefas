@@ -1,26 +1,29 @@
 const URL_BASE = 'http://localhost:3000'
 
-
 const api = {
 
-    async buscartarefas(){
+    async buscartarefas() {
+        try {
+            const resposta = await axios.get(`${URL_BASE}/tarefas`)
+            return resposta.data
+        } catch (error) {
+            alert('Erro ao carregar tarefas!')
+            return []
+        }
+    },
+
+    async cadastrarTarefa(tarefa) {
 
         try {
-            const tarefas = await axios.get(`${URL_BASE}/tarefas`)
-            return tarefas.data.map(tarefas => {
-                return {
-                    ...tarefas,
-                    criadoEm: new Date(tarefas.data),
-                    atualizadoEm: new Date(tarefas.data),
-                    concluidoEm: new Date(tarefas.data)
-                }
-            })
+
+            const resposta = await axios.post(`${URL_BASE}/tarefas`, tarefa)
+            return resposta.data
+
         } catch (error) {
-            return alert('Erro ao carregar tarefas!')
+            alert('Erro ao cadastrar tarefa!')
         }
 
     }
-
 }
 
 export default api

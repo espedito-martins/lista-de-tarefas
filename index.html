@@ -1,237 +1,222 @@
-<!-- index.html (To-Do List Avançada) -->
 <!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lista de Tarefas • To-Do Avançada</title>
+
   <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Axios (necessário para api.js funcionar) -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   <script type="module" src="js/api.js"></script>
   <script type="module" src="js/ui.js"></script>
   <script type="module" src="js/main.js"></script>
 </head>
 
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <a class="link-pular" href="#conteudo">Pular para o conteúdo</a>
 
-  <header class="header">
-    <div class="container header__inner">
-      <div class="brand" aria-label="Marca do app">
-        <span class="brand__mark" aria-hidden="true"></span>
-        <div class="brand__text">
+  <header class="cabecalho">
+    <div class="container cabecalho__conteudo">
+      <div class="marca" aria-label="Marca do app">
+        <span class="marca__icone" aria-hidden="true"></span>
+        <div class="marca__texto">
           <strong>Lista de Tarefas</strong>
           <span>To-Do Avançada</span>
         </div>
       </div>
 
-      <nav class="nav" aria-label="Navegação">
-        <a class="nav__link is-active" href="#tarefas">Tarefas</a>
-        <a class="nav__link" href="#form-tarefa">Nova tarefa</a>
+      <nav class="menu" aria-label="Navegação">
+        <a class="menu__link esta-ativo" href="#tarefas">Tarefas</a>
+        <a class="menu__link" href="#form-tarefa">Nova tarefa</a>
       </nav>
     </div>
   </header>
 
   <main id="conteudo" class="container layout">
     <!-- COLUNA PRINCIPAL: LISTA -->
-    <section id="tarefas" class="panel" aria-label="Painel de tarefas">
-      <header class="panel__head">
-        <div class="panel__title">
+    <section id="tarefas" class="painel" aria-label="Painel de tarefas">
+      <header class="painel__cabecalho">
+        <div class="painel__titulo">
           <h1>Minhas tarefas</h1>
-          <p class="muted">CRUD + Busca/Filtro + PATCH (Concluído/Pendente)</p>
+          <p class="texto-suave">CRUD + Busca/Filtro + PATCH (Concluído/Pendente)</p>
         </div>
 
-        <!-- Resumo (seu JS pode preencher dinamicamente) -->
-        <div class="kpis" aria-label="Resumo">
-          <div class="kpi">
-            <span class="kpi__label">Total</span>
-            <strong class="kpi__value" id="kpi-total">—</strong>
+        <div class="indicadores" aria-label="Resumo">
+          <div class="indicador">
+            <span class="indicador__rotulo">Total</span>
+            <strong class="indicador__valor" id="kpi-total">—</strong>
           </div>
-          <div class="kpi">
-            <span class="kpi__label">Pendentes</span>
-            <strong class="kpi__value" id="kpi-pending">—</strong>
+          <div class="indicador">
+            <span class="indicador__rotulo">Pendentes</span>
+            <strong class="indicador__valor" id="kpi-pending">—</strong>
           </div>
-          <div class="kpi">
-            <span class="kpi__label">Concluídas</span>
-            <strong class="kpi__value" id="kpi-done">—</strong>
+          <div class="indicador">
+            <span class="indicador__rotulo">Concluídas</span>
+            <strong class="indicador__valor" id="kpi-done">—</strong>
           </div>
         </div>
       </header>
 
       <!-- Toolbar: busca, filtros, ordenação -->
-      <section class="toolbar" aria-label="Busca e filtros">
-        <form class="toolbar__form" action="#" method="get">
-          <div class="field">
+      <section class="barra-ferramentas" aria-label="Busca e filtros">
+        <form class="barra-ferramentas__formulario" action="#" method="get">
+          <div class="campo">
             <label class="sr-only" for="q">Buscar</label>
             <input id="q" name="q" type="search" placeholder="Buscar por título…" autocomplete="off" />
           </div>
 
-          <div class="field">
+          <div class="campo">
             <label class="sr-only" for="filter-status">Status</label>
             <select id="filter-status" name="status">
               <option value="">Todos os status</option>
-              <option value="pending">Pendente</option>
-              <option value="done">Concluída</option>
+              <option value="pendente">Pendente</option>
+              <option value="concluida">Concluída</option>
             </select>
           </div>
 
-          <div class="field">
+          <div class="campo">
             <label class="sr-only" for="filter-priority">Prioridade</label>
-            <select id="filter-priority" name="priority">
+            <select id="filter-priority" name="prioridade">
               <option value="">Todas as prioridades</option>
-              <option value="high">Alta</option>
-              <option value="medium">Média</option>
-              <option value="low">Baixa</option>
+              <option value="alta">Alta</option>
+              <option value="media">Média</option>
+              <option value="baixa">Baixa</option>
             </select>
           </div>
 
-          <div class="field">
+          <div class="campo">
             <label class="sr-only" for="sort">Ordenar</label>
             <select id="sort" name="sort">
               <option value="newest">Mais recentes</option>
               <option value="oldest">Mais antigas</option>
               <option value="priority">Prioridade</option>
-              <option value="dueDate">Prazo</option>
             </select>
           </div>
 
-          <button class="btn" type="submit">Aplicar</button>
+          <button class="botao" type="submit">Aplicar</button>
         </form>
 
-        <div class="toolbar__hint muted small">
-          Dica: com JSON Server, você pode usar <code>?q=</code> para busca geral e <code>?status=done</code> para filtro.
+        <div class="barra-ferramentas__dica texto-suave texto-pequeno">
+          Dica: com JSON Server, você pode usar <code>?q=</code> para busca geral e <code>?status=concluida</code> para filtro.
         </div>
       </section>
 
-      <!-- Lista de tarefas (placeholder visual; seu JS deve renderizar com createElement) -->
-      <section class="list" aria-label="Lista">
-        <ul id="task-list" class="task-list">
+      <!-- Lista de tarefas -->
+      <section class="lista" aria-label="Lista">
+        <ul id="task-list" class="lista-tarefas">
           <!-- ITEM (placeholder) -->
-          <li class="task" data-task-id="1">
-            <div class="task__left">
-              <div class="task__meta">
-                <span class="badge badge--status badge--pending">Pendente</span>
-                <span class="badge badge--priority badge--high">Alta</span>
-                <span class="muted">•</span>
-                <span class="muted small">Prazo: <time datetime="2026-01-10">10 jan 2026</time></span>
+          <li class="tarefa" data-task-id="1">
+            <div class="tarefa__esquerda">
+              <div class="tarefa__metadados">
+                <span class="selo selo--status selo--pendente">Pendente</span>
+                <span class="selo selo--prioridade selo--alta">Alta</span>
               </div>
 
-              <h3 class="task__title">Implementar GET + renderização dinâmica</h3>
-              <p class="task__desc muted">
-                Buscar <code>/tasks</code> e renderizar a lista usando <code>createElement</code>.
+              <h3 class="tarefa__titulo">Implementar GET + renderização dinâmica</h3>
+              <p class="tarefa__descricao texto-suave">
+                Buscar <code>/tarefas</code> e renderizar a lista usando <code>createElement</code>.
               </p>
             </div>
 
-            <div class="task__right" aria-label="Ações da tarefa">
-              <!-- PATCH: alternar status -->
-              <button class="btn btn--soft" type="button" data-action="toggle">
-                Marcar como concluída
-              </button>
-
-              <!-- PUT/PATCH: editar -->
-              <button class="btn" type="button" data-action="edit">Editar</button>
-
-              <!-- DELETE: excluir -->
-              <button class="btn btn--danger" type="button" data-action="delete">Excluir</button>
+            <div class="tarefa__acoes" aria-label="Ações da tarefa">
+              <button class="botao botao--suave" type="button" data-action="toggle">Marcar como concluída</button>
+              <button class="botao" type="button" data-action="edit">Editar</button>
+              <button class="botao botao--perigo" type="button" data-action="delete">Excluir</button>
             </div>
           </li>
 
           <!-- ITEM (placeholder) -->
-          <li class="task task--done" data-task-id="2">
-            <div class="task__left">
-              <div class="task__meta">
-                <span class="badge badge--status badge--done">Concluída</span>
-                <span class="badge badge--priority badge--medium">Média</span>
-                <span class="muted">•</span>
-                <span class="muted small">Concluída em: <time datetime="2026-01-04">04 jan 2026</time></span>
+          <li class="tarefa tarefa--concluida" data-task-id="2">
+            <div class="tarefa__esquerda">
+              <div class="tarefa__metadados">
+                <span class="selo selo--status selo--concluida">Concluída</span>
+                <span class="selo selo--prioridade selo--media">Média</span>
               </div>
 
-              <h3 class="task__title">Criar formulário (POST) + limpar inputs</h3>
-              <p class="task__desc muted">
-                Enviar nova tarefa para <code>/tasks</code> e limpar o formulário ao finalizar.
+              <h3 class="tarefa__titulo">Criar formulário (POST) + limpar inputs</h3>
+              <p class="tarefa__descricao texto-suave">
+                Enviar nova tarefa para <code>/tarefas</code> e limpar o formulário ao finalizar.
               </p>
             </div>
 
-            <div class="task__right" aria-label="Ações da tarefa">
-              <button class="btn btn--soft" type="button" data-action="toggle">
-                Marcar como pendente
-              </button>
-              <button class="btn" type="button" data-action="edit">Editar</button>
-              <button class="btn btn--danger" type="button" data-action="delete">Excluir</button>
+            <div class="tarefa__acoes" aria-label="Ações da tarefa">
+              <button class="botao botao--suave" type="button" data-action="toggle">Marcar como pendente</button>
+              <button class="botao" type="button" data-action="edit">Editar</button>
+              <button class="botao botao--perigo" type="button" data-action="delete">Excluir</button>
             </div>
           </li>
 
-          <!-- Estado vazio (exiba via JS quando não houver tarefas) -->
-          <li id="empty-state" class="empty" hidden>
+          <!-- Estado vazio -->
+          <li id="empty-state" class="estado-vazio" hidden>
             <h3>Nenhuma tarefa encontrada</h3>
-            <p class="muted">Ajuste a busca/filtros ou crie uma nova tarefa.</p>
+            <p class="texto-suave">Ajuste a busca/filtros ou crie uma nova tarefa.</p>
           </li>
         </ul>
       </section>
     </section>
 
     <!-- COLUNA LATERAL: FORMULÁRIO -->
-    <aside class="side" aria-label="Painel lateral">
-      <section id="form-tarefa" class="card" aria-label="Cadastro e edição">
-        <header class="card__head">
-          <h2 class="card__title">Cadastro / Edição</h2>
-          <p class="muted">Use para criar (POST) e editar (PUT/PATCH) tarefas.</p>
+    <aside class="lateral" aria-label="Painel lateral">
+      <section id="form-tarefa" class="cartao" aria-label="Cadastro e edição">
+        <header class="cartao__cabecalho">
+          <h2 class="cartao__titulo">Cadastro / Edição</h2>
+          <p class="texto-suave">Use para criar (POST) e editar (PUT/PATCH) tarefas.</p>
         </header>
 
-        <form id="task-form" class="form" action="#" method="post">
-          <!-- Seu JS pode preencher este hidden para modo edição -->
+        <form id="task-form" class="formulario" action="#" method="post">
           <input id="task-id" name="id" type="hidden" />
 
-          <div class="field">
+          <div class="campo">
             <label for="title">Título</label>
             <input id="title" name="title" type="text" placeholder="Ex.: Fazer CRUD completo" required />
           </div>
 
-          <div class="field">
+          <div class="campo">
             <label for="description">Descrição</label>
             <textarea id="description" name="description" rows="5" placeholder="Detalhes da tarefa…" required></textarea>
           </div>
 
-          <div class="field-row">
-            <div class="field">
+          <div class="linha-campos">
+            <div class="campo">
               <label for="priority">Prioridade</label>
               <select id="priority" name="priority" required>
                 <option value="" disabled selected>Selecione…</option>
-                <option value="high">Alta</option>
-                <option value="medium">Média</option>
-                <option value="low">Baixa</option>
+                <option value="alta">Alta</option>
+                <option value="media">Média</option>
+                <option value="baixa">Baixa</option>
               </select>
             </div>
 
-            <div class="field">
+            <div class="campo">
               <label for="status">Status</label>
               <select id="status" name="status" required>
-                <option value="pending">Pendente</option>
-                <option value="done">Concluída</option>
+                <option value="pendente">Pendente</option>
+                <option value="concluida">Concluída</option>
               </select>
             </div>
           </div>
 
-          <div class="field">
-            <label for="dueDate">Prazo (opcional)</label>
-            <input id="dueDate" name="dueDate" type="date" />
+          <!-- REMOVIDO: Prazo (input date) -->
+
+          <div class="formulario__acoes">
+            <button class="botao botao--primario" type="submit">Salvar</button>
+            <button class="botao" type="reset">Limpar</button>
           </div>
 
-          <div class="form__actions">
-            <button class="btn btn--primary" type="submit">Salvar</button>
-            <button class="btn" type="reset">Limpar</button>
-          </div>
-
-          <p class="muted small form__note">
-            Sugestão de PATCH: alternar apenas <code>status</code> (pending/done) ao clicar em “Marcar como…”.
+          <p class="texto-suave texto-pequeno formulario__nota">
+            Sugestão de PATCH: alternar apenas <code>status</code> ao clicar em “Marcar como…”.
           </p>
         </form>
       </section>
     </aside>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <span class="muted small">&copy; Desenvolvido por Espedito Martins</span>
+  <footer class="rodape">
+    <div class="container rodape__conteudo">
+      <span class="texto-suave texto-pequeno">&copy; Desenvolvido por Espedito Martins</span>
     </div>
   </footer>
 </body>
