@@ -96,13 +96,38 @@ const ui = {
         botaoToggle.classList.add("botao", "botao--suave")
         botaoToggle.type = "button"
         botaoToggle.setAttribute("data-action", "toggle")
-        botaoToggle.textContent = "Alterar status"
+
+        if (tarefa.status === "pendente") {
+            botaoToggle.textContent = "Marcar como concluída"
+        } else {
+            botaoToggle.textContent = "Marcar como pendente"
+        }
+
+        botaoToggle.onclick = async () => {
+            try {
+                let novoStatus
+
+                if (tarefa.status === "pendente") {
+                    novoStatus = "concluida"
+                } else {
+                    novoStatus = "pendente"
+                }
+
+                await api.alterarStatus(tarefa.id, novoStatus)
+                await ui.renderizarTarefas()
+            } catch (error) {
+                alert("Erro ao alterar status!")
+            }
+        }
+
 
         const botaoEditar = document.createElement("button")
         botaoEditar.classList.add("botao")
         botaoEditar.type = "button"
         botaoEditar.setAttribute("data-action", "edit")
         botaoEditar.textContent = "Editar"
+
+        botaoEditar.onclick = () => ui.preencherFormulario(tarefa.id)
 
         const botaoExcluir = document.createElement("button")
         botaoExcluir.classList.add("botao", "botao--perigo")

@@ -56,13 +56,26 @@ const api = {
 
         try {
 
-            const resposta = await axios.put(`${URL_BASE}/tarefas/${tarefa.id}`)
+            const resposta = await axios.put(`${URL_BASE}/tarefas/${tarefa.id}`, tarefa)
+            return resposta.data
 
         } catch (error) {
             alert('Erro ao alterar tarefa!')
         }
 
+    },
+
+    async alterarStatus(id, status){
+
+        try {
+            await axios.patch(`${URL_BASE}/tarefas/${id}`, {status})
+        } catch (error) {
+            alert('Erro ao alterar status!')
+        }
+
     }
+
+
 }
 
 export default api
