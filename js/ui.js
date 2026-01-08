@@ -21,6 +21,24 @@ const ui = {
         }
     },
 
+    async preencherFormulario(id) {
+
+        const idTarefa = document.querySelector('#task-id')
+        const tituloTarefa = document.querySelector('#title')
+        const descricaoTarefa = document.querySelector('#description')
+        const prioridadeTarefa = document.querySelector('#priority')
+        const statusTarefa = document.querySelector('#status')
+
+        const tarefa = await api.buscarTarefasPorId(id)
+
+        idTarefa.value = tarefa.id
+        tituloTarefa.value = tarefa.titulo
+        descricaoTarefa.value = tarefa.descricao
+        prioridadeTarefa.value = tarefa.prioridade
+        statusTarefa.value = tarefa.status
+
+    },
+
     criarItemTarefa(tarefa) {
         const listaTarefas = document.getElementById("task-list")
 
