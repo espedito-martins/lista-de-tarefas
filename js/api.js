@@ -35,6 +35,21 @@ const api = {
             alert("Erro ao deletar tarefa!")
         }
 
+    },
+
+    async buscarTarefasPorId(id){
+
+        try {
+            
+            const resposta = await axios.get(`${URL_BASE}/tarefas/${id}`)
+            const tarefa = resposta.data
+
+            return tarefa
+
+        } catch (error) {
+            alert('ERro ao buscar tarefa por ID!')
+        }
+
     }
 }
 
