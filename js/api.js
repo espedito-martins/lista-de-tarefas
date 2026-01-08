@@ -23,6 +23,18 @@ const api = {
             alert('Erro ao cadastrar tarefa!')
         }
 
+    },
+
+    async deletarTarefa(id){
+
+        try {
+            
+            const resposta = await axios.delete(`${URL_BASE}/tarefas/${id}`)
+
+        } catch (error) {
+            alert("Erro ao deletar tarefa!")
+        }
+
     }
 }
 

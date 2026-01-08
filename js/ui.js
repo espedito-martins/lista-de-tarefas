@@ -92,6 +92,15 @@ const ui = {
         botaoExcluir.setAttribute("data-action", "delete")
         botaoExcluir.textContent = "Excluir"
 
+        botaoExcluir.onclick = async () => {
+            try {
+                await api.deletarTarefa(tarefa.id)
+                ui.renderizarTarefas()
+            } catch (error) {
+                alert("Erro ao excluir Tarefa!")
+            }
+        }
+
         metadados.appendChild(seloStatus)
         metadados.appendChild(seloPrioridade)
 
