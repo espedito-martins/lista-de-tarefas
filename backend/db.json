@@ -1,46 +1,59 @@
 {
   "tarefas": [
     {
-      "id": 1,
+      "id": "1",
       "titulo": "Implementar GET + renderização dinâmica",
       "descricao": "Buscar /tarefas e renderizar a lista usando createElement, appendChild e atualização do DOM.",
       "prioridade": "alta",
       "status": "pendente"
     },
     {
-      "id": 2,
+      "id": "2",
       "titulo": "Criar formulário (POST) + limpar inputs",
       "descricao": "Enviar nova tarefa via POST e limpar o formulário após sucesso. Recarregar a lista (GET).",
       "prioridade": "media",
       "status": "concluida"
     },
     {
-      "id": 3,
+      "id": "3",
       "titulo": "Implementar busca por título",
       "descricao": "Criar campo de busca e filtrar tarefas por título (pode usar query no servidor ou filtrar no cliente).",
       "prioridade": "baixa",
       "status": "pendente"
     },
     {
-      "id": 4,
+      "id": "4",
       "titulo": "PATCH: alternar status concluída/pendente",
       "descricao": "Ao clicar em 'Marcar como concluída', enviar PATCH mudando apenas o campo status.",
       "prioridade": "alta",
       "status": "pendente"
     },
     {
-      "id": 5,
+      "id": "5",
       "titulo": "PUT/PATCH: editar tarefa",
       "descricao": "Carregar a tarefa no formulário para edição e salvar as alterações no servidor.",
       "prioridade": "media",
       "status": "pendente"
     },
     {
-      "id": 6,
+      "id": "6",
       "titulo": "DELETE: excluir tarefa (servidor + DOM)",
       "descricao": "Remover a tarefa do servidor e, após sucesso, remover o elemento correspondente do DOM.",
       "prioridade": "baixa",
       "status": "concluida"
+    },
+    {
+      "id": "39a0"
+    },
+    {
+      "id": "9050"
+    },
+    {
+      "id": "ffac",
+      "titulo": "Teste",
+      "descricao": "Testando se cadastrarTarefa funcionou",
+      "prioridade": "alta",
+      "status": "pendente"
     }
   ]
 }
