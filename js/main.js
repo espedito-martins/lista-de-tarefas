@@ -5,6 +5,8 @@ console.log("main.js carregou")
 
 const formulario = document.querySelector('#task-form')
 
+const campoBusca = document.querySelector('#q')
+
 ui.renderizarTarefas()
 
 formulario.addEventListener('submit', async (evento) => {
@@ -25,4 +27,11 @@ formulario.addEventListener('submit', async (evento) => {
 
     await ui.renderizarTarefas()
 
+})
+
+campoBusca.addEventListener('input', async () => {
+    const termo = campoBusca.value
+    const tarefasFiltardas = await api.filtrarPorTermo(termo)
+
+    await ui.renderizarTarefas(tarefasFiltardas)
 })

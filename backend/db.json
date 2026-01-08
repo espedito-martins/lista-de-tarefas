@@ -5,7 +5,7 @@
       "titulo": "PATCH: alternar status concluída/pendente",
       "descricao": "Ao clicar em 'Marcar como concluída', enviar PATCH mudando apenas o campo status.",
       "prioridade": "alta",
-      "status": "pendente"
+      "status": "concluida"
     },
     {
       "id": "5",
@@ -15,18 +15,32 @@
       "status": "concluida"
     },
     {
-      "id": "6",
-      "titulo": "DELETE: excluir tarefa (servidor + DOM)",
-      "descricao": "Remover a tarefa do servidor e, após sucesso, remover o elemento correspondente do DOM.",
+      "id": "ffac",
+      "titulo": "Teste",
+      "descricao": "Testando se cadastrarTarefa funcionou e o editar também",
+      "prioridade": "media",
+      "status": "pendente"
+    },
+    {
+      "id": "dc0e",
+      "titulo": "Teste final de adição",
+      "descricao": "Se essa mensagem aparecer é porque o criarTarefa esta funcionando",
+      "prioridade": "alta",
+      "status": "pendente"
+    },
+    {
+      "id": "eb11",
+      "titulo": "DEELETE",
+      "descricao": "O excluir esta funcionando",
       "prioridade": "baixa",
       "status": "concluida"
     },
     {
-      "id": "ffac",
-      "titulo": "Teste",
-      "descricao": "Testando se cadastrarTarefa funcionou",
+      "id": "1901",
+      "titulo": "CRUD realizado",
+      "descricao": "O CRUD deu certo, a partir dessa postagem, todos os requisitos foram atendidos",
       "prioridade": "alta",
-      "status": "pendente"
+      "status": "concluida"
     }
   ]
 }

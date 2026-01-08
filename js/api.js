@@ -25,10 +25,10 @@ const api = {
 
     },
 
-    async deletarTarefa(id){
+    async deletarTarefa(id) {
 
         try {
-            
+
             const resposta = await axios.delete(`${URL_BASE}/tarefas/${id}`)
 
         } catch (error) {
@@ -37,10 +37,10 @@ const api = {
 
     },
 
-    async buscarTarefasPorId(id){
+    async buscarTarefasPorId(id) {
 
         try {
-            
+
             const resposta = await axios.get(`${URL_BASE}/tarefas/${id}`)
             const tarefa = resposta.data
 
@@ -52,7 +52,7 @@ const api = {
 
     },
 
-    async alterarTarefa(tarefa){
+    async alterarTarefa(tarefa) {
 
         try {
 
@@ -65,12 +65,30 @@ const api = {
 
     },
 
-    async alterarStatus(id, status){
+    async alterarStatus(id, status) {
 
         try {
-            await axios.patch(`${URL_BASE}/tarefas/${id}`, {status})
+            await axios.patch(`${URL_BASE}/tarefas/${id}`, { status })
         } catch (error) {
             alert('Erro ao alterar status!')
+        }
+
+    },
+
+    async filtrarPorTermo(termo) {
+
+        try {
+
+            const tarefa = await this.buscartarefas()
+            const termoMaiusculo = termo.toUpperCase()
+            const tarefasFiltradas = tarefa.filter((tarefa) => {
+                return (tarefa.titulo.toUpperCase().includes(termoMaiusculo) ||
+                    tarefa.descricao.toUpperCase().includes(termoMaiusculo))
+            })
+            return tarefasFiltradas
+
+        } catch (error) {
+            alert('Erro ao filtrar Tarefas!')
         }
 
     }

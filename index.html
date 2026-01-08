@@ -6,8 +6,6 @@
   <title>Lista de Tarefas • To-Do Avançada</title>
 
   <link rel="stylesheet" href="css/styles.css">
-
-  <!-- Axios (necessário para api.js funcionar) -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   <script type="module" src="js/api.js"></script>
@@ -24,7 +22,6 @@
         <span class="marca__icone" aria-hidden="true"></span>
         <div class="marca__texto">
           <strong>Lista de Tarefas</strong>
-          <span>To-Do Avançada</span>
         </div>
       </div>
 
@@ -36,31 +33,14 @@
   </header>
 
   <main id="conteudo" class="container layout">
-    <!-- COLUNA PRINCIPAL: LISTA -->
     <section id="tarefas" class="painel" aria-label="Painel de tarefas">
       <header class="painel__cabecalho">
         <div class="painel__titulo">
           <h1>Minhas tarefas</h1>
-          <p class="texto-suave">CRUD + Busca/Filtro + PATCH (Concluído/Pendente)</p>
         </div>
 
-        <div class="indicadores" aria-label="Resumo">
-          <div class="indicador">
-            <span class="indicador__rotulo">Total</span>
-            <strong class="indicador__valor" id="kpi-total">—</strong>
-          </div>
-          <div class="indicador">
-            <span class="indicador__rotulo">Pendentes</span>
-            <strong class="indicador__valor" id="kpi-pending">—</strong>
-          </div>
-          <div class="indicador">
-            <span class="indicador__rotulo">Concluídas</span>
-            <strong class="indicador__valor" id="kpi-done">—</strong>
-          </div>
-        </div>
       </header>
 
-      <!-- Toolbar: busca, filtros, ordenação -->
       <section class="barra-ferramentas" aria-label="Busca e filtros">
         <form class="barra-ferramentas__formulario" action="#" method="get">
           <div class="campo">
@@ -68,46 +48,13 @@
             <input id="q" name="q" type="search" placeholder="Buscar por título…" autocomplete="off" />
           </div>
 
-          <div class="campo">
-            <label class="sr-only" for="filter-status">Status</label>
-            <select id="filter-status" name="status">
-              <option value="">Todos os status</option>
-              <option value="pendente">Pendente</option>
-              <option value="concluida">Concluída</option>
-            </select>
-          </div>
-
-          <div class="campo">
-            <label class="sr-only" for="filter-priority">Prioridade</label>
-            <select id="filter-priority" name="prioridade">
-              <option value="">Todas as prioridades</option>
-              <option value="alta">Alta</option>
-              <option value="media">Média</option>
-              <option value="baixa">Baixa</option>
-            </select>
-          </div>
-
-          <div class="campo">
-            <label class="sr-only" for="sort">Ordenar</label>
-            <select id="sort" name="sort">
-              <option value="newest">Mais recentes</option>
-              <option value="oldest">Mais antigas</option>
-              <option value="priority">Prioridade</option>
-            </select>
-          </div>
-
           <button class="botao" type="submit">Aplicar</button>
         </form>
-
-        <div class="barra-ferramentas__dica texto-suave texto-pequeno">
-          Dica: com JSON Server, você pode usar <code>?q=</code> para busca geral e <code>?status=concluida</code> para filtro.
-        </div>
       </section>
 
-      <!-- Lista de tarefas -->
       <section class="lista" aria-label="Lista">
         <ul id="task-list" class="lista-tarefas">
-          <!-- ITEM (placeholder) -->
+
           <li class="tarefa" data-task-id="1">
             <div class="tarefa__esquerda">
               <div class="tarefa__metadados">
@@ -128,7 +75,6 @@
             </div>
           </li>
 
-          <!-- ITEM (placeholder) -->
           <li class="tarefa tarefa--concluida" data-task-id="2">
             <div class="tarefa__esquerda">
               <div class="tarefa__metadados">
@@ -149,7 +95,6 @@
             </div>
           </li>
 
-          <!-- Estado vazio -->
           <li id="empty-state" class="estado-vazio" hidden>
             <h3>Nenhuma tarefa encontrada</h3>
             <p class="texto-suave">Ajuste a busca/filtros ou crie uma nova tarefa.</p>
@@ -158,12 +103,10 @@
       </section>
     </section>
 
-    <!-- COLUNA LATERAL: FORMULÁRIO -->
     <aside class="lateral" aria-label="Painel lateral">
       <section id="form-tarefa" class="cartao" aria-label="Cadastro e edição">
         <header class="cartao__cabecalho">
           <h2 class="cartao__titulo">Cadastro / Edição</h2>
-          <p class="texto-suave">Use para criar (POST) e editar (PUT/PATCH) tarefas.</p>
         </header>
 
         <form id="task-form" class="formulario" action="#" method="post">
@@ -199,16 +142,10 @@
             </div>
           </div>
 
-          <!-- REMOVIDO: Prazo (input date) -->
-
           <div class="formulario__acoes">
             <button class="botao botao--primario" type="submit">Salvar</button>
             <button class="botao" type="reset">Limpar</button>
           </div>
-
-          <p class="texto-suave texto-pequeno formulario__nota">
-            Sugestão de PATCH: alternar apenas <code>status</code> ao clicar em “Marcar como…”.
-          </p>
         </form>
       </section>
     </aside>
