@@ -18,7 +18,7 @@
       "id": "ffac",
       "titulo": "Teste",
       "descricao": "Testando se cadastrarTarefa funcionou e o editar também",
-      "prioridade": "media",
+      "prioridade": "alta",
       "status": "pendente"
     },
     {
@@ -41,6 +41,13 @@
       "descricao": "O CRUD deu certo, a partir dessa postagem, todos os requisitos foram atendidos",
       "prioridade": "alta",
       "status": "concluida"
+    },
+    {
+      "id": "d9ed",
+      "titulo": "Funções de Gráficos",
+      "descricao": "Fazer 10 questões de objectivas de função exponencial e um slide de apresentação.",
+      "prioridade": "alta",
+      "status": "pendente"
     }
   ]
 }
